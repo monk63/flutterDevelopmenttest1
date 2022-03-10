@@ -1,57 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:test4/question.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(
+      MaterialApp(
+        home: Home(),
+      ),
+    );
 
-class MyApp extends StatefulWidget {
-  State<StatefulWidget> createState() {
-    return _MyAppState();
-  }
-}
-
-class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
-
-  void _answers() {
-    setState(() {
-      _questionIndex = _questionIndex + 1;
-    });
-
-    print(_questionIndex);
-  }
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      'What\'s your favorite car?',
-      'What\'s your favorite sport?',
-    ];
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('The Garage'),
-        ),
-        body: Column(
-          children: [
-            Question(
-              questions[_questionIndex],
-            ),
-            RaisedButton(
-              child: Text('benz'),
-              onPressed: _answers,
-            ),
-            RaisedButton(
-              child: Text('audi'),
-              onPressed: () => print('option 2 selected'),
-            ),
-            RaisedButton(
-              child: Text('bmw'),
-              onPressed: () => print('option 2 selected'),
-            ),
-          ],
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Garage'),
+        centerTitle: true,
+        backgroundColor: Colors.red[600],
+      ),
+      body: Center(
+        child: Image.asset('assets/mars1.jpg'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Text('click'),
+        backgroundColor: Colors.blueGrey[900],
       ),
     );
   }
